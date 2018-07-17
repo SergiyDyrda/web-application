@@ -70,8 +70,8 @@
                             </artifactory>
                             <publisher>
                                 <contextUrl>{{ARTIFACTORY_CONTEXT_URL}}</contextUrl>
-                                <!--<username>${username}</username>-->
-                                <!--<password>${password}</password>-->
+                                <username>{{ARTIFACTORY_CONTEXT_USERNAME}}</username>
+                                <password>{{ARTIFACTORY_CONTEXT_PASSWORD}}</password>
                                 <repoKey>libs-release-local</repoKey>
                                 <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
                             </publisher>

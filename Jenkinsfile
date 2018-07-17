@@ -6,29 +6,15 @@ pipeline {
                 git url: 'https://github.com/SergiyDyrda/web-application'
             }
         }
-        stage('Clean') {
-            steps {
-                sh "mvn clean"
-            }
+        stage ('Artifactory configuration') {
+            // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+            server = Artifactory.server 'artifactory-server'
         }
-        stage('Compile') {
-            steps {
-                sh "mvn compile"
-            }
-        }
-        stage("Unit test") {
-            steps {
-                sh "mvn test"
-            }
-        }
-        stage("Package") {
-            steps {
-                sh "mvn package"
-            }
-        }
-        stage("Deploy") {
-            steps {
-                sh "mvn deploy"
+        stage("Clean|Compile|Unit test|Package|Deploy") {
+            withEnv(["ARTIFACTORY_CONTEXT_URL=${server.url}", "ARTIFACTORY_CONTEXT_USERNAME=${server.username}", "ARTIFACTORY_CONTEXT_PASSWORD=${server.password}"]) {
+                steps {
+                    sh "mvn clean deploy"
+                }
             }
         }
     }
