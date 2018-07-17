@@ -1,4 +1,4 @@
-pipeline {
+node {
     def server
 
     agent any
