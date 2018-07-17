@@ -1,7 +1,6 @@
 node {
     def server
 
-    agent any
     stages {
         stage("Checkout") {
             steps {
