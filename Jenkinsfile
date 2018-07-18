@@ -20,10 +20,6 @@ node {
         buildInfo = Artifactory.newBuildInfo()
     }
 
-    stage ('Test') {
-        rtMaven.run pom: 'pom.xml', goals: 'clean test'
-    }
-
     stage ('Install') {
         rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
     }
@@ -38,7 +34,7 @@ node {
 
     stage('Deploy on server') {
         withEnv(["SERVER_URL=$server.url"]){
-            sh "deploy/deploy.sh"
+            sh "sudo deploy/deploy.sh"
         }
     }
 }
