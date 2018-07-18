@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Artifactory location
 server=http://192.168.10.10:8081/artifactory
 repo=libs-release-local

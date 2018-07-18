@@ -3,11 +3,11 @@ node {
     def buildInfo
     def rtMaven
 
-    stage ('Clone') {
+    stage('Clone') {
         git url: 'https://github.com/SergiyDyrda/web-application'
     }
 
-    stage ('Artifactory configuration') {
+    stage('Artifactory configuration') {
         // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
         server = Artifactory.server 'artifactory-server'
 
@@ -20,20 +20,20 @@ node {
         buildInfo = Artifactory.newBuildInfo()
     }
 
-    stage ('Install') {
+    stage('Install') {
         rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
     }
 
-    stage ('Deploy') {
+    stage('Deploy') {
         rtMaven.deployer.deployArtifacts buildInfo
     }
 
-    stage ('Publish build info') {
+    stage('Publish build info') {
         server.publishBuildInfo buildInfo
     }
 
     stage('Deploy on server') {
-        withEnv(["SERVER_URL=$server.url"]){
+        withEnv(["SERVER_URL=${server.url}"]) {
             sh "sudo deploy/deploy.sh"
         }
     }
