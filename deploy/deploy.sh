@@ -2,6 +2,7 @@
 
 # Artifactory location
 server=http://192.168.10.10:8081/artifactory
+server=$SERVER_URL
 repo=libs-release-local
 
 # Maven artifact location
