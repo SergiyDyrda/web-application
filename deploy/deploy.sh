@@ -1,6 +1,6 @@
 #!/bin/bash
 # Artifactory location
-server=$SERVER_URL
+server=http://192.168.10.10:8081/artifactory
 repo=libs-release-local
 
 # Maven artifact location
