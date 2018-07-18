@@ -1,0 +1,16 @@
+- hosts: all
+
+  tasks:
+    - name: Insert dockerfile
+      template:
+        src: "Dockerfile.j2"
+        dest: "Dockerfile"
+
+    - name: Copying docker-compose.yml
+      copy:
+        src: files/docker-compose.yml
+        dest: docker-compose.yml
+        mode: 0644
+
+    - name: Run docker-compose
+      shell: "docker-compose up --build -d"

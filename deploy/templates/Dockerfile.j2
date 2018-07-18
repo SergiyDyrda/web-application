@@ -1,0 +1,7 @@
+FROM openjdk
+
+EXPOSE 8080
+
+ADD {{ artifact_url }} /deployments/
+
+ENTRYPOINT ["java","-jar","/deployments/{{ artifact_jar }}"]
