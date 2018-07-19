@@ -20,6 +20,3 @@
         build: yes
         started: true
     register: output
-
-    - debug:
-        var: output
