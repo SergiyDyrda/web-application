@@ -17,6 +17,7 @@ public class DemoApplication {
     @RequestMapping(method = RequestMethod.GET,
         path = "/")
     public String index() {
+        if (true) throw new RuntimeException("Fuck you!");
         return "demo-0.0.3";
     }
 }
