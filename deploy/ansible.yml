@@ -12,11 +12,11 @@
         dest: docker-compose.yml
         mode: 0644
 
-    - name: Run docker-compose
-      shell: "docker-compose up -d --build"
+#    - name: Run docker-compose
+#      shell: "docker-compose up -d --build"
 
-#    - docker_service:
-#        project_src: .
-#        build: yes
-#        started: true
-#    register: output
+    - docker_service:
+        project_src: .
+        build: yes
+        started: true
+    register: output
