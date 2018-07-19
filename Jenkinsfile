@@ -33,8 +33,7 @@ node {
     }
 
     stage('Deploy on server') {
-        withEnv(["SERVER_URL=${server.url}"]) {
-            sh "sudo deploy/deploy.sh"
-        }
+        env.SERVER_URL = $ { server.url }
+        sh "sudo deploy/deploy.sh"
     }
 }
