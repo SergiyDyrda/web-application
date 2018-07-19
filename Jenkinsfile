@@ -34,6 +34,7 @@ node {
 
     stage('Deploy on server') {
         env.SERVER_URL = server.url
+        sh "chmod 755 deploy/deploy.sh"
         sh "deploy/deploy.sh"
     }
 }
