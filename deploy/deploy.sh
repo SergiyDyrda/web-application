@@ -19,5 +19,5 @@ echo "Artifact url - ${ARTIFACT_URL}"
 export ARTIFACT_JAR="${jar}"
 echo "Artifact jar - ${ARTIFACT_JAR}"
 
-ansible-playbook -i hosts deploy/ansible.yml --extra-vars "artifact_url=$url artifact_jar=$jar"
+ansible-playbook -i deploy/hosts deploy/ansible.yml --extra-vars "artifact_url=$url artifact_jar=$jar"
 
