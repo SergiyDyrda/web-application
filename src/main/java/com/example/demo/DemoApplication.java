@@ -17,6 +17,6 @@ public class DemoApplication {
     @RequestMapping(method = RequestMethod.GET,
         path = "/")
     public String index() {
-        return "Update this shit!";
+        return "Update this shit!v2";
     }
 }
