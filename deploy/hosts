@@ -1,3 +1,2 @@
 [env]
-#vagrant
-server  ansible_user=vagrant ansible_ssh_private_key_file=/home/vagrant/.ssh/id_rsa
+192.168.10.20  ansible_user=vagrant ansible_ssh_private_key_file=/home/vagrant/.ssh/id_rsa
