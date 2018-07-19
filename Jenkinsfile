@@ -33,7 +33,7 @@ node {
     }
 
     stage('Deploy on server') {
-        env.SERVER_URL = $ { server.url }
+        env.SERVER_URL = server.url
         sh "sudo deploy/deploy.sh"
     }
 }
