@@ -13,14 +13,6 @@ version=`curl -s ${path}/maven-metadata.xml | grep '<latest>' | sed "s/.*<latest
 jar=${name}-${version}.jar
 url=${path}/${version}/${jar}
 
-export ARTIFACT_URL="${url}"
-echo "Artifact url - ${ARTIFACT_URL}"
-
-export ARTIFACT_JAR="${jar}"
-echo "Artifact jar - ${ARTIFACT_JAR}"
-
-export ARTIFACT_VERSION="${version}"
-echo "Artifact version - ${ARTIFACT_VERSION}"
 
 ansible-playbook -i deploy/hosts deploy/ansible.yml --extra-vars "artifact_url=$url artifact_name=$name artifact_version=$version"
 

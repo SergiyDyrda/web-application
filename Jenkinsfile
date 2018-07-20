@@ -1,4 +1,4 @@
-node("web-application") {
+node {
     def server
     def buildInfo
     def rtMaven
