@@ -4,4 +4,4 @@ EXPOSE 8080
 
 ADD {{ artifact_url }} /deployments/
 
-ENTRYPOINT ["java","-jar","/deployments/{{ artifact_jar }}"]
+ENTRYPOINT ["java","-jar","/deployments/{{ artifact_name }}-{{ artifact_version }}"]

@@ -6,10 +6,10 @@
         src: "Dockerfile.j2"
         dest: "Dockerfile"
 
-    - name: Copying docker-compose.yml
-      copy:
-        src: files/docker-compose.yml
-        dest: docker-compose.yml
+    - name: Copying docker-compose.yml.j2
+      template:
+        src: "docker-compose.yml.j2"
+        dest: "docker-compose.yml"
         mode: 0644
 
     - name: Run docker-compose

@@ -1,4 +1,4 @@
-node {
+node("web-application") {
     def server
     def buildInfo
     def rtMaven
@@ -24,7 +24,8 @@ node {
         rtMaven.run pom: 'pom.xml', goals: 'install', buildInfo: buildInfo
     }
 
-    stage('Deploy') {
+
+    stage('Deploy to artifactory') {
         rtMaven.deployer.deployArtifacts buildInfo
     }
 
@@ -34,7 +35,7 @@ node {
 
     stage('Deploy on server') {
         env.SERVER_URL = server.url
-        sh "chmod 755 deploy/deploy.sh"
+        sh "chmod +x deploy/deploy.sh"
         sh "deploy/deploy.sh"
     }
 }
