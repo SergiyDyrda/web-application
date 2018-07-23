@@ -1,5 +1,8 @@
-web:
-  image: {{ artifact_name }}:{{ artifact_version }}
-  build: .
-  ports:
-    - "8080:8080"
+version: '2'
+
+services:
+  web:
+    build: .
+    image: {{ artifact_name }}:{{ artifact_version }}
+    ports:
+      - "8080:8080"

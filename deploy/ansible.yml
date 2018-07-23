@@ -1,10 +1,11 @@
-- hosts: all
+- hosts: prod
 
   tasks:
     - name: Insert dockerfile
       template:
         src: "Dockerfile.j2"
         dest: "Dockerfile"
+        mode: 0644
 
     - name: Copying docker-compose.yml.j2
       template:
